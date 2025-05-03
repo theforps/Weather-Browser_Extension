@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>Weather</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Боковое меню -->
+        <div class="sidebar collapsed" id="sidebar">
+            <button class="toggle-btn" id="toggle-btn">☰</button>
+            <h2>Weather</h2>
+            <!-- Страны будут загружаться сюда -->
+        </div>
+
+        <!-- Контейнер с погодой -->
+        <div class="weather-container">
+            <h1 id="weatherLocation">Location</h1>
+            <p id="weatherCountry">Country</h1>
+            <h4 id="weatherTemp">Temp</h4>
+            <img id="weatherImage" alt="Weather"/>
+            <p id="weatherDescription">Description</p>
+        </div>
+    </div>
+    <script src="weather_handler.js"></script>
+</body>
+</html>

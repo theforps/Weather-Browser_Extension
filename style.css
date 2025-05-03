@@ -1,0 +1,181 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f7;
+    display: flex;
+    height: 400px;
+    min-width: 500px;
+    transition: margin-left 0.3s;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    width: 350px;
+    margin: 20px;
+    margin-right: 2px;
+    background: linear-gradient(145deg, #e0e0e0, #ffffff);
+    color: white;
+    padding: 10px;
+    border-radius: 20px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    transition: width 0.3s;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none; /* Полоса прокрутки скрыта */
+}
+
+/* Разрешаем прокрутку */
+.sidebar {
+    overflow: scroll; /* Разрешаем прокрутку, но полоса будет скрыта */
+}
+
+.sidebar.collapsed {
+    width: 0px;
+    padding: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.sidebar h2 {
+    font-size: 1.2em;
+    color: black;
+    margin-bottom: 10px;
+    transition: opacity 0.3s;
+    text-align: center;
+}
+
+.sidebar.collapsed h2 {
+    opacity: 0;
+}
+
+.country-tab {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border: none;
+    color: black;
+    font-size: 1em;
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+}
+
+.country-tab:hover {
+    border: 1px solid #1a2b41;
+    padding: 9px;
+}
+
+.city-list {
+    display: none;
+    font-size: 0.9em;
+    margin-left: 0px;
+    color: black;
+    padding: 2px;
+    margin-top: 2px;
+    list-style-type: none;
+}
+
+.city-list li {
+    padding: 5px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.city-list li:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.weather-container {
+    width: 100%;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #e0e0e0, #ffffff);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+  }
+
+  
+  .weather-container h1 {
+    margin: 0px;
+    font-size: 3em;
+    color: #333;
+  }
+  
+  .weather-container h4 {
+    margin: 10px;
+    font-size: 2em;
+    color: #555;
+  }
+  
+  .weather-container p {
+    margin: 0px;
+    font-size: 2em;
+    color: #666;
+  }
+  
+  .weather-container img {
+    margin: 0px;
+    width: 100px;
+    height: 100px;
+  }
+
+#weatherImage {
+    width: 100px;
+    height: 100px;
+    margin-top: 5px;
+}
+
+/* Кнопка для сворачивания меню */
+.toggle-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    color: black;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 12px; /* ширина вертикальной полосы прокрутки */
+    height: 12px; /* высота горизонтальной полосы прокрутки */
+}
+
+/* Стилизация полосы прокрутки */
+::-webkit-scrollbar-track {
+    background: #2f3b52; /* цвет фона полосы прокрутки */
+    border-radius: 10px;
+}
+
+/* Стилизация бегунка (ползунка) */
+::-webkit-scrollbar-thumb {
+    background: #2f3b52; /* основной цвет бегунка */
+    border-radius: 10px; /* скругление углов */
+}
+
+/* Для горизонтальной полосы прокрутки */
+::-webkit-scrollbar-horizontal {
+    height: 12px;
+}
+
+/* Для вертикальной полосы прокрутки */
+::-webkit-scrollbar-vertical {
+    width: 12px;
+}
