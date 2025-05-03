@@ -5,7 +5,7 @@ body {
     background-color: #f0f4f7;
     display: flex;
     height: 400px;
-    min-width: 500px;
+    min-width: 600px;
     transition: margin-left 0.3s;
 }
 
@@ -28,12 +28,11 @@ body {
 }
 
 .sidebar::-webkit-scrollbar {
-    display: none; /* Полоса прокрутки скрыта */
+    display: none; 
 }
 
-/* Разрешаем прокрутку */
 .sidebar {
-    overflow: scroll; /* Разрешаем прокрутку, но полоса будет скрыта */
+    overflow: scroll;
 }
 
 .sidebar.collapsed {
@@ -108,7 +107,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: all 0.3s ease;
   }
-
   
   .weather-container h1 {
     margin: 0px;
@@ -140,7 +138,6 @@ body {
     margin-top: 5px;
 }
 
-/* Кнопка для сворачивания меню */
 .toggle-btn {
     position: absolute;
     top: 25px;
@@ -153,29 +150,32 @@ body {
     cursor: pointer;
 }
 
-::-webkit-scrollbar {
-    width: 12px; /* ширина вертикальной полосы прокрутки */
-    height: 12px; /* высота горизонтальной полосы прокрутки */
-}
-
-/* Стилизация полосы прокрутки */
-::-webkit-scrollbar-track {
-    background: #2f3b52; /* цвет фона полосы прокрутки */
-    border-radius: 10px;
-}
-
-/* Стилизация бегунка (ползунка) */
-::-webkit-scrollbar-thumb {
-    background: #2f3b52; /* основной цвет бегунка */
-    border-radius: 10px; /* скругление углов */
-}
-
-/* Для горизонтальной полосы прокрутки */
-::-webkit-scrollbar-horizontal {
-    height: 12px;
-}
-
-/* Для вертикальной полосы прокрутки */
-::-webkit-scrollbar-vertical {
-    width: 12px;
-}
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+  }
+  
+  .spinner {
+    border: 6px solid #ddd;
+    border-top: 6px solid #4a90e2;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

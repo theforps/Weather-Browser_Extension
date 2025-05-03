@@ -1,3 +1,11 @@
+window.addEventListener("load", function () {
+  const preloader = document.getElementById("preloader");
+  preloader.style.opacity = "0";
+  setTimeout(() => {
+    preloader.style.display = "none";
+  }, 500);
+});
+
 document.addEventListener("DOMContentLoaded", async function getUserLocation() {
   const sidebar = document.getElementById("sidebar");
   const toggleBtn = document.getElementById("toggle-btn");
@@ -11,7 +19,6 @@ document.addEventListener("DOMContentLoaded", async function getUserLocation() {
   await getWeather(currentCity);
   await getCities();
 
-  // Получение текущего города по IP
   async function getCurrentCity() {
     const apiKey = "d9e53816d07345139c58d0ea733e3870";
     const response = await fetch(
@@ -25,9 +32,8 @@ document.addEventListener("DOMContentLoaded", async function getUserLocation() {
     }
   }
 
-  // Получение и отображение погоды
   async function getWeather(city) {
-    const apiKey = "ddcf041e48294f1f922192858231501"; // Твой API-ключ
+    const apiKey = "ddcf041e48294f1f922192858231501";
     const response = await fetch(
       `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`
     );
@@ -48,7 +54,6 @@ document.addEventListener("DOMContentLoaded", async function getUserLocation() {
     }
   }
 
-  // Получение списка стран и городов
   async function getCities() {
     const response = await fetch(
       "https://countriesnow.space/api/v0.1/countries"
@@ -60,16 +65,13 @@ document.addEventListener("DOMContentLoaded", async function getUserLocation() {
     loadCountries(data);
   }
 
-  // Загрузка стран в боковое меню
   function loadCountries(data) {
     Object.keys(data).forEach((country) => {
-      // Создаем кнопку для страны
       const button = document.createElement("button");
       button.classList.add("country-tab");
       button.innerText = country;
       button.onclick = () => toggleCities(country);
 
-      // Создаем список городов для этой страны
       const cityList = document.createElement("ul");
       cityList.id = country;
       cityList.classList.add("city-list");
@@ -80,13 +82,11 @@ document.addEventListener("DOMContentLoaded", async function getUserLocation() {
         cityList.appendChild(cityItem);
       });
 
-      // Добавляем кнопку страны и список городов в меню
       sidebar.appendChild(button);
       sidebar.appendChild(cityList);
     });
   }
 
-  // Функция для отображения/скрытия списка городов
   function toggleCities(country) {
     const cityList = document.getElementById(country);
     if (cityList.style.display === "none" || cityList.style.display === "") {
@@ -95,7 +95,6 @@ document.addEventListener("DOMContentLoaded", async function getUserLocation() {
       cityList.style.display = "none";
     }
 
-    // Скрытие всех других списков городов
     const allCities = document.querySelectorAll(".city-list");
     allCities.forEach((list) => {
       if (list.id !== country) {
@@ -104,12 +103,10 @@ document.addEventListener("DOMContentLoaded", async function getUserLocation() {
     });
   }
 
-  // Функция для отображения погоды для выбранного города
   async function showWeather(city) {
     await getWeather(city);
   }
 
-  // Обработчик кнопки для сворачивания бокового меню
   toggleBtn.addEventListener("click", () => {
     sidebar.classList.toggle("collapsed");
     const allCityLists = document.querySelectorAll(".city-list");
